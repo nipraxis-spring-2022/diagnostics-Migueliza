@@ -1,57 +1,44 @@
-"""
-This module defines functions implementing algorithms in SPM
+import numpy as np
+import nibabel as nib
 
-Here you want the get_spm_globals function from the earlier
-``four_dimensions_exercise``, with anything that function imports and other
-definitions that the function needs.
-
-See:
-    https://bic-berkeley.github.io/psych-214-fall-2016/four_dimensions_exercise.html
-
-In the same directory as this file, you will find a 'tests' directory.
-
-Test this module with:
-
-    python3 findoutlie/tests/test_spm_funcs.py
-
-or better, in IPython::
-
-    %run findoutlie/tests/test_spm_funcs.py
-"""
-
-# Any imports you need
-# +++your code here+++
+from numpy.typing import ArrayLike
 
 
-def spm_global(vol):
-    """ Calculate SPM global metric for array `vol`
+def spm_global(vol: ArrayLike) -> ArrayLike:
+    """Calculate SPM global metric for array `vol`.
 
     Parameters
     ----------
-    vol : array
+    vol : ArrayLike
         Array giving image data, usually 3D.
 
     Returns
     -------
-    g : float
+    ArrayLike
         SPM global metric for `vol`
     """
-    # +++your code here+++
-    # return
+    T = np.mean(vol) / 8
+
+    return np.mean(vol[vol > T])
 
 
-def get_spm_globals(fname):
-    """ Calculate SPM global metrics for volumes in image filename `fname`
+def get_spm_globals(file_name: str) -> ArrayLike:
+    """Calculate SPM global metrics for volumes in image filename `file_name`.
 
     Parameters
     ----------
-    fname : str
+    file_name : str
         Filename of file containing 4D image
 
     Returns
     -------
-    spm_vals : array
+    spm_vals : ArrayLike
         SPM global metric for each 3D volume in the 4D image.
     """
-    # +++your code here+++
-    # return
+    img = nib.load(file_name)
+    data = img.get_fdata()
+    spm_vals = np.empty(img.shape[-1])
+    for i, vol in enumerate(range(img.shape[-1])):
+        spm_vals[i] = spm_global(data[..., vol])
+
+    return spm_vals

@@ -1,34 +1,11 @@
-""" Test script for SPM functions
-
-Run these tests with::
-
-    python3 findoutlie/tests/test_spm_funcs.py
-
-or better, in IPython::
-
-    %run findoutlie/tests/test_spm_funcs.py
-"""
-
+import nibabel as nib
+import numpy as np
 import os.path as op
-import sys
+
+from findoutlie import get_spm_globals, spm_global
 
 MY_DIR = op.dirname(__file__)
 EXAMPLE_FILENAME = 'ds107_sub012_t1r2_small.nii'
-
-# Here you should add the directory containing the findoutlie
-# directory to the Python path.
-# Hint: sys.path
-# Hint: see the solutions if you are stuck.
-# +++your code here+++
-
-import numpy as np
-
-import nibabel as nib
-
-# This import needs the directory containing the findoutlie directory
-# on the Python path.
-from spm_funcs import get_spm_globals, spm_global
-
 
 def test_spm_globals():
     # Test get_spm_globals and spm_global functions
