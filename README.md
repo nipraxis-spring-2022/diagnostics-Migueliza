@@ -52,3 +52,5 @@ data/group-01/sub-09/func/sub-08_task-taskzero_run-01_bold.nii.gz, 3
 These are the changes of Migueliza's team.
 
 We are still making changes.
+
+Last changes - Luiza.
