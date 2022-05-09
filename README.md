@@ -53,4 +53,4 @@ These are the changes of Migueliza's team.
 
 We are still making changes.
 
-Last changes.
+Last changes - Luiza.
