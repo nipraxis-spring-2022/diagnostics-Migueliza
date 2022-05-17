@@ -1,16 +1,6 @@
-""" Test dvars implementation
-
-You can run the tests from the root directory (containing ``README.md``) with::
-
-    python3 -m pytest .
-"""
-
 import numpy as np
-
 import nibabel as nib
-
 import nipraxis as npx
-
 from findoutlie.metrics import dvars
 
 
