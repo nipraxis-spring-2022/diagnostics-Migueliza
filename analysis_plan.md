@@ -12,5 +12,5 @@ THis is our cool analysis plan.
 
 # Miguel's ideas
 
-* nothing so far
+* Check TODS pipeline for time series outlier detection (https://github.com/datamllab/tods)
 
